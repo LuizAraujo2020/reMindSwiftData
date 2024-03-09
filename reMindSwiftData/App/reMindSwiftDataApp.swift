@@ -10,10 +10,10 @@ import SwiftData
 
 @main
 struct reMindSwiftDataApp: App {
+    @StateObject var boxesVM = BoxesViewModel()
+
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
+        let schema = Schema([Box.self/*Item.self*/])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
@@ -25,7 +25,8 @@ struct reMindSwiftDataApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            BoxesView()
         }
         .modelContainer(sharedModelContainer)
     }
