@@ -41,7 +41,7 @@ struct TodaysCardView: View {
                 .font(.title3)
 
             NavigationLink {
-                Text("SwipperView(review: review)")
+                SwipperView(review: review)
 
             } label: {
                 Text("Start Swipping")
