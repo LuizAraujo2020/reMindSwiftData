@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct BoxView: View {
+    @Environment(\.modelContext) private var modelContext
     let box: Box
-//    @Binding var terms: [Term]
+    //    @Binding var terms: [Term]
 
     @State private var isEditingBox = false
     @State private var isEditingTerm = false
@@ -17,45 +18,37 @@ struct BoxView: View {
     @State private var searchText: String = ""
     @State private var termIndex = 0
 
-//    var termsToReview: [Term]
-//    let createTerm: (_ termAux: TermAux) -> Void
+    //    var termsToReview: [Term]
+    //    let createTerm: (_ termAux: TermAux) -> Void
 
-//    private var filteredTerms: [Term] {
-//        let termsSet = box.terms as? Set<Term> ?? []
-//        let terms = Array(termsSet).sorted { lhs, rhs in
-//            (lhs.value) < (rhs.value)
-//        }
-//
-//        if searchText.isEmpty {
-//            return terms
-//        } else {
-//            return terms.filter { ($0.value).contains(searchText) }
-//        }
-//    }
+    //    private var filteredTerms: [Term] {
+    //        let termsSet = box.terms as? Set<Term> ?? []
+    //        let terms = Array(termsSet).sorted { lhs, rhs in
+    //            (lhs.value) < (rhs.value)
+    //        }
+    //
+    //        if searchText.isEmpty {
+    //            return terms
+    //        } else {
+    //            return terms.filter { ($0.value).contains(searchText) }
+    //        }
+    //    }
 
     var body: some View {
         VStack {
             TodaysCardView(
                 terms: box.terms,
-                //                numberOfPendingCards: termsToReview.count,
-                theme: reTheme(rawValue: box.rawTheme) ?? .aquamarine)
-//            .onAppear {
-//                let termsSet = box.terms as? Set<Term> ?? []
-//                let aux = Array(termsSet).sorted { lhs, rhs in
-//                    (lhs.value) < (rhs.value)
-//                }
-//
-//                terms = aux
-//            }
+                theme: reTheme(rawValue: box.rawTheme) ?? .aquamarine
+            )
             .padding(.horizontal)
 
             VStack {
                 List {
                     Section {
-        ForEach(box.terms) { term in
+                        ForEach(box.terms) { term in
                             NavigationLink {
                                 Text("SwipperView(review: SwipeReview(termsToReview: [terms[index]], termsReviewed: []))")
-//
+
                             } label: {
                                 Text("\(term.value)")
                                     .padding(.vertical, 8)
@@ -63,26 +56,24 @@ struct BoxView: View {
                                     .swipeActions(edge: .trailing) {
                                         Button(role: .destructive) {
                                             print("delete")
-                                            destroy()
+                                            destroy(term)
                                         } label: {
                                             Image(systemName: "trash")
                                         }
                                     }
-                                    .swipeActions(edge: .leading) {
-                                        Button {
-                                            print("edit term")
-                                            isEditingTerm = true
-//                                            termIndex = index
-                                        } label: {
-                                            //                                    ZStack {
-                                            //                                        Rectangle()
-                                            Image(systemName: "square.and.pencil")
-                                            //                                    }
-                                        }
-                                    }
+                                //                                    .swipeActions(edge: .leading) {
+                                //                                        Button {
+                                //                                            print("edit term")
+                                //                                            isEditingTerm = true
+                                //
+                                //                                        } label: {
+                                //                                            Image(systemName: "square.and.pencil")
+                                //                                        }
+                                //                                    }
                             }
 
                         }
+
                     } header: {
                         Text("All Cards")
                             .textCase(.none)
@@ -164,27 +155,28 @@ struct BoxView: View {
         .sheet(isPresented: $isCreatingTerm) {
             TermCreatorView(box: box)
         }
-//        .sheet(isPresented: $isEditingTerm) {
-//            TermEditorView(
-//                term: terms[termIndex],
-//////            TermEditorView(
-//                value: terms[termIndex].value,
-//                meaning: terms[termIndex].meaning
-//////                boxID: box.identifier,
-//////                editTerm: viewModel.editTerm
-//            )
-////                term: filteredTerms[termIndex],
-////                value: terms[termIndex].value,
-////                meaning: terms[termIndex].meaning
-////            ) { value, meaning in
-////                terms[termIndex].setValue(value, forKey: "value")
-////                terms[termIndex].setValue(meaning, forKey: "meaning")
-////            }
-//        }
+        //        .sheet(isPresented: $isEditingTerm) {
+        //            TermEditorView(
+        //                term: terms[termIndex],
+        //////            TermEditorView(
+        //                value: terms[termIndex].value,
+        //                meaning: terms[termIndex].meaning
+        //////                boxID: box.identifier,
+        //////                editTerm: viewModel.editTerm
+        //            )
+        ////                term: filteredTerms[termIndex],
+        ////                value: terms[termIndex].value,
+        ////                meaning: terms[termIndex].meaning
+        ////            ) { value, meaning in
+        ////                terms[termIndex].setValue(value, forKey: "value")
+        ////                terms[termIndex].setValue(meaning, forKey: "meaning")
+        ////            }
+        //        }
     }
 
-    private func destroy() {
-        // TODO: fazer depois
+    private func destroy(_ term: Term) {
+        box.terms.removeAll { $0 == term }
+//        try? modelContext.save()
     }
 }
 
@@ -221,4 +213,75 @@ struct BoxView: View {
 //                createTerm: { _ in })
 //        }
 //    }
+//}
+
+
+
+//import SwiftUI
+//import SwiftData
+//
+//struct BookListView: View {
+//    @Environment(\.modelContext) private var context
+//    @Query(sort: \Book.title) private var books: [Book]
+//    @State private var createNewBook = false
+//    var body: some View {
+//        NavigationStack {
+//            Group {
+//                if books.isEmpty {
+//                    ContentUnavailableView("Enter your first book.", systemImage: "book.fill")
+//                } else {
+//                    List {
+//                        ForEach(books) { book in
+//                            NavigationLink {
+////                                EditBookView(book: book)
+//                            } label: {
+//                                HStack(spacing: 10) {
+//                                    book.icon
+//                                    VStack(alignment: .leading) {
+//                                        Text(book.title).font(.title2)
+//                                        Text(book.author).foregroundStyle(.secondary)
+//                                        if let rating = book.rating {
+//                                            HStack {
+//                                                ForEach(1..<rating, id: \.self) { _ in
+//                                                    Image(systemName: "star.fill")
+//                                                        .imageScale(.small)
+//                                                        .foregroundStyle(.yellow)
+//                                                }
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//                            }
+//
+//                        }
+//                        .onDelete { indexSet in
+//                            indexSet.forEach { index in
+//                                let book = books[index]
+//                                context.delete(book)
+//                            }
+//                        }
+//                    }
+//                    .listStyle(.plain)
+//                }
+//            }
+//            .navigationTitle("My Books")
+//            .toolbar {
+//                Button {
+//                    createNewBook = true
+//                }label: {
+//                    Image(systemName: "plus.circle.fill")
+//                        .imageScale(.large)
+//                }
+//            }
+//            .sheet(isPresented: $createNewBook) {
+//                NewBookView()
+//                    .presentationDetents([.medium])
+//            }
+//        }
+//    }
+//}
+//
+//#Preview {
+//    BookListView()
+//        .modelContainer(for: Book.self, inMemory: true)
 //}
