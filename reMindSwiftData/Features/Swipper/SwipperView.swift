@@ -72,6 +72,8 @@ struct SwipperView: View {
         case .left:
             temp.rawSRS = (SpacedRepetitionSystem(rawValue: temp.rawSRS)?.previous ?? .first).rawValue
         }
+
+        self.direction = .none
     }
 }
 

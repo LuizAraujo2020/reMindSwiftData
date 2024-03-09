@@ -22,7 +22,7 @@ struct SwipperReportView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                Text("\(review.termsReviewed.count)/\(review.termsToReview.count) terms were reviewed")
+                Text("\(review.termsReviewed.count)/\(review.termsToReview.count + review.termsReviewed.count) terms were reviewed")
                     .font(.body)
                     .bold()
 
