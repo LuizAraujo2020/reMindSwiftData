@@ -48,7 +48,12 @@ struct BoxView: View {
                     Section {
                         ForEach(box.terms.indices, id: \.self) { index in
                             NavigationLink {
-                                Text("SwipperView(review: SwipeReview(termsToReview: [terms[index]], termsReviewed: []))")
+                                SwipperView(
+                                    review: SwipeReview(
+                                        termsToReview: [box.terms[index]],
+                                        termsReviewed: []
+                                    )
+                                )
 
                             } label: {
                                 Text("\(box.terms[index].value)")
@@ -94,7 +99,7 @@ struct BoxView: View {
 
                 /// Show Swipper Report button
                 NavigationLink {
-                    Text("SwipperReportView(terms: terms)")
+                    SwipperReportView(terms: box.terms)
 
                 } label: {
                     Text("Show Report")

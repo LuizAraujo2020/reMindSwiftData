@@ -67,4 +67,48 @@ extension Term {
         return nextReview <= Date()
     }
 
+    var srs: SpacedRepetitionSystem {
+        return SpacedRepetitionSystem(rawValue: rawSRS) ?? SpacedRepetitionSystem.first
+    }
+
+    var theme: reTheme {
+        return reTheme(rawValue: self.rawTheme) ?? reTheme.lavender
+    }
+}
+
+enum SpacedRepetitionSystem: Int {
+    case none = 0
+    case first = 1
+    case second = 2
+    case third = 3
+    case fourth = 5
+    case fifth = 8
+    case sixth = 13
+    case seventh = 21
+
+    var next: Self {
+        switch self {
+        case .none: return .first
+        case .first: return .second
+        case .second: return.third
+        case .third: return .fourth
+        case .fourth: return.fifth
+        case .fifth: return .sixth
+        case .sixth, .seventh: return .seventh
+
+        }
+    }
+
+    var previous: Self {
+        switch self {
+        case .none, .first: return .none
+        case .second: return.first
+        case .third: return .second
+        case .fourth: return.third
+        case .fifth: return .fourth
+        case .sixth: return .fifth
+        case .seventh: return .sixth
+
+        }
+    }
 }
