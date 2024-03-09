@@ -176,7 +176,8 @@ struct BoxView: View {
 
     private func destroy(_ term: Term) {
         box.terms.removeAll { $0 == term }
-//        try? modelContext.save()
+        modelContext.delete(term)
+        try? modelContext.save()
     }
 }
 

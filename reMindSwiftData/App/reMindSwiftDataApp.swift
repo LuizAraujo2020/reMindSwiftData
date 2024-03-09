@@ -13,7 +13,7 @@ struct reMindSwiftDataApp: App {
     @StateObject var boxesVM = BoxesViewModel()
 
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([Box.self/*Item.self*/])
+        let schema = Schema([Box.self, Term.self/*Item.self*/])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {

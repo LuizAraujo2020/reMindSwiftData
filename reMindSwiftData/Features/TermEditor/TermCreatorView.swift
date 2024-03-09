@@ -48,7 +48,11 @@ struct TermCreatorView: View {
                 Button {
                     guard validateFields() else { return }
                     print("Save and Add New")
+
                     createTerm()
+
+                    term = ""
+                    meaning = ""
 
                 } label: {
                     Text("Save and Add New")
