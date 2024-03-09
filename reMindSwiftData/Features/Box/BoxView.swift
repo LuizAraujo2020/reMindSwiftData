@@ -133,27 +133,13 @@ struct BoxView: View {
             TermCreatorView(box: box)
         }
         .sheet(isPresented: $isEditingTerm) {
-                        TermEditorView(
-                            term: box.terms[termIndex],
-            ////            TermEditorView(
-                            value: box.terms[termIndex].value,
-                            meaning: box.terms[termIndex].meaning
-            ////                boxID: box.identifier,
-            ////                editTerm: viewModel.editTerm
-                        ) { value, meaning in
-                            box.terms[termIndex].value = value
-                            box.terms[termIndex].meaning = meaning
-                        }
-            //                term: filteredTerms[termIndex],
-            //                value: terms[termIndex].value,
-            //                meaning: terms[termIndex].meaning
-            //            ) { value, meaning in
-            //                terms[termIndex].setValue(value, forKey: "value")
-            //                terms[termIndex].setValue(meaning, forKey: "meaning")
-            //            }
-//            if let termToEdit {
-//            TermEditorView(term: termToEdit)
-//            }
+            TermEditorView(
+                value: box.terms[termIndex].value,
+                meaning: box.terms[termIndex].meaning
+            ) { value, meaning in
+                box.terms[termIndex].value = value
+                box.terms[termIndex].meaning = meaning
+            }
         }
     }
 

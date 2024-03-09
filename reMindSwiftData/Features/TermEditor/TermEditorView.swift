@@ -9,10 +9,7 @@ import SwiftUI
 
 struct TermEditorView: View {
     @Environment(\.dismiss) var dismiss
-//    @Environment(\.modelContext) private var modelContext
-//    @Query(sort: \Box.name) private var term: [Box]
 
-    let term: Term
     @State var value: String
     @State var meaning: String
 
@@ -22,9 +19,6 @@ struct TermEditorView: View {
 
     var validation = TextValidation()
 
-//    var boxID: UUID
-//
-//    let editTerm: (TermAux) -> Void
     let editTerm: (String, String) -> Void
 
     var body: some View {
@@ -55,18 +49,6 @@ struct TermEditorView: View {
                 Button {
                     guard validateFields() else { return }
 
-//                    DispatchQueue.global().async {
-////                        editTerm(value, meaning)
-////                        createTerm(TermAux(boxID: <#T##UUID#>, meaning: <#T##String#>, term: <#T##String#>)
-////                        term.value = value
-////                        term.meaning = meaning
-////
-//                        term.setValue(forKey: value, to: "value")
-//                        term.setValue(meaning, forKey: "meaning")
-//                    }
-
-//                    term = ""
-//                    meaning = ""
                     saveChanges()
                     dismiss()
                 } label: {
@@ -79,40 +61,25 @@ struct TermEditorView: View {
             .background(reBackground())
             .navigationTitle("New Term")
             .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                    Button("cancel") {
-//                        dismiss()
-//                        print("Cancel")
-//                    }
-//                    .fontWeight(.bold)
-//                }
-//
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    Button("Save") {
-//                        guard validateFields() else { return }
-////                        editTerm(TermAux(boxID: boxID, meaning: meaning, term: term))
-////                        term.mutableSetValue(forKey: "value").add(value)
-////                        term.mutableSetValue(forKey: "meaning").add(meaning)
-////                        term.value = value
-////                        term.meaning = meaning
-//                        term.setValue(value, forKey: "value")
-//                        term.setValue(meaning, forKey: "meaning")
-//
-////                        editTerm(value, meaning)
-//                        dismiss()
-//                    }
-//                    .fontWeight(.bold)
-//                }
-//            }
-//            .onAppear {
-//                if let sneakers = modelContext.model(for: yourID) as? Movie {
-//                    print(sneakers.director)
-//                }
-//                value = term.value
-//                meaning = term.meaning
-//            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("cancel") {
+                        dismiss()
+                        print("Cancel")
+                    }
+                    .fontWeight(.bold)
+                }
 
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save") {
+                        guard validateFields() else { return }
+
+                        saveChanges()
+                        dismiss()
+                    }
+                    .fontWeight(.bold)
+                }
+            }
         }
     }
 
@@ -145,13 +112,5 @@ struct TermEditorView: View {
 
     private func saveChanges() {
         editTerm(value, meaning)
-//        term.meaning = meaning
-//        term.value = value
     }
 }
-
-//#Preview {
-////    TermEditorView(value: "", meaning: "") { _, _ in }
-////    TermEditorView(term: BoxView_Previews.terms[0], value: "", meaning: "")
-//    TermEditorView(term: BoxView_Previews.terms[0], value: "", meaning: "")
-//}
