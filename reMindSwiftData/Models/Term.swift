@@ -17,7 +17,6 @@ final class Term {
     var rawSRS: Int
     var rawTheme: Int
     var value: String
-//    var boxID: Box?
 
     internal init() {
         self.creationDate = .now
@@ -26,8 +25,7 @@ final class Term {
         self.meaning = ""
         self.rawSRS = 0
         self.rawTheme = 0
-        self.value = "" 
-        //        self._$backingData = _$backingData
+        self.value = ""
     }
 
     internal init(
@@ -37,8 +35,7 @@ final class Term {
         meaning: String,
         rawSRS: Int,
         rawTheme: Int,
-        value: String//,
-//        _$backingData: any BackingData<Term> = Term.createBackingData()
+        value: String
     ) {
         self.creationDate = creationDate
         self.identifier = identifier
@@ -47,10 +44,8 @@ final class Term {
         self.rawSRS = rawSRS
         self.rawTheme = rawTheme
         self.value = value
-//        self._$backingData = _$backingData
     }
 }
-
 
 extension Term {
 

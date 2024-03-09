@@ -23,8 +23,7 @@ final class Box: Identifiable {
         keywords: String,
         descriptions: String,
         rawTheme: Int,
-        terms: [Term]//,
-//        _$backingData: any BackingData<Box> = Box.createBackingData()
+        terms: [Term]
     ) {
         self.identifier = identifier
         self.name = name
@@ -32,7 +31,6 @@ final class Box: Identifiable {
         self.descriptions = descriptions
         self.rawTheme = rawTheme
         self.terms = terms
-//        self._$backingData = _$backingData
     }
 }
 

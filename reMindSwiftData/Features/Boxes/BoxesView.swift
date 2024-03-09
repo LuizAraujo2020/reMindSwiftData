@@ -12,23 +12,21 @@ struct BoxesView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Box.name) private var boxes: [Box]
 
-//    @ObservedObject var viewModel: BoxesViewModel
-
     @State var isCreatingNewBox = false
     @State private var searchText = ""
 
-//    private var filteredBoxes: [Box] {
-//
-//        let boxes = viewModel.boxes.sorted { lhs, rhs in
-//            lhs.name < rhs.name
-//        }
-//
-//        if searchText.isEmpty {
-//            return boxes
-//        } else {
-//            return boxes.filter { ($0.name).contains(searchText) }
-//        }
-//    }
+    //    private var filteredBoxes: [Box] {
+    //
+    //        let boxes = viewModel.boxes.sorted { lhs, rhs in
+    //            lhs.name < rhs.name
+    //        }
+    //
+    //        if searchText.isEmpty {
+    //            return boxes
+    //        } else {
+    //            return boxes.filter { ($0.name).contains(searchText) }
+    //        }
+    //    }
 
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: 140), spacing: 20),
@@ -37,13 +35,13 @@ struct BoxesView: View {
 
     var body: some View {
         NavigationStack {
-                ScrollView(.vertical, showsIndicators: false) {
-                    if boxes.isEmpty {
-                        ContentUnavailableView(
-                            "Enter your first box",
-                            systemImage: "shippingbox"
-                        )
-                    } else {
+            ScrollView(.vertical, showsIndicators: false) {
+                if boxes.isEmpty {
+                    ContentUnavailableView(
+                        "Enter your first box",
+                        systemImage: "shippingbox"
+                    )
+                } else {
                     LazyVGrid(columns: columns, spacing: 20) {
                         //                    ForEach(viewModel.boxes) { box in
                         ForEach(boxes) { box in
@@ -59,18 +57,18 @@ struct BoxesView: View {
                     .padding(40)
                 }
             }
-                .padding(-20)
-                .navigationTitle("Boxes")
-                .background(reBackground())
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            isCreatingNewBox.toggle()
-                        } label: {
-                            Image(systemName: "plus")
-                        }
+            .padding(-20)
+            .navigationTitle("Boxes")
+            .background(reBackground())
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isCreatingNewBox.toggle()
+                    } label: {
+                        Image(systemName: "plus")
                     }
                 }
+            }
         }
         .searchable(text: $searchText, prompt: "")
         .sheet(isPresented: $isCreatingNewBox) {

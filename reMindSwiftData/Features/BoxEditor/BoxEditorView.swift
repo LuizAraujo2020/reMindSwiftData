@@ -17,14 +17,11 @@ struct BoxEditorView: View {
     @State private var descriptions: String = ""
     @State private var rawTheme: Int = 0
 
-
-
     @State private var errorMessage: String?
     @State private var fieldName = false
     @State private var fieldKey = false
     @State private var fieldDescription = false
 
-    //    var validation: (any Validateable)?
     var validation = TextValidation()
 
     var body: some View {
@@ -50,17 +47,15 @@ struct BoxEditorView: View {
                 Spacer()
 
                 if let errorMessage {
-//                    ZStack {
-                        Text(errorMessage)
-                            .font(.body)
-                            .foregroundStyle(Palette.selectionColor.render)
-                            .padding(.vertical, 5)
-                            .padding(.horizontal, 20)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundStyle(Color.accentColor.opacity(0.5))
-                            )
-//                    }
+                    Text(errorMessage)
+                        .font(.body)
+                        .foregroundStyle(Palette.selectionColor.render)
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 20)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundStyle(Color.accentColor.opacity(0.5))
+                        )
                 }
             }
             .padding()
@@ -89,7 +84,7 @@ struct BoxEditorView: View {
                             fieldKey = true
                             try validation.maxSize(keywords, 150)
                             fieldKey = false
-                            
+
                             fieldDescription = true
                             try validation.maxSize(descriptions, 150)
                             fieldKey = false
@@ -167,10 +162,6 @@ struct ErrorHighlightModifier: ViewModifier {
         if show {
             content
                 .shadow(color: Palette.error.render, radius: 10)
-//                .overlay {
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .stroke(Palette.error.render, lineWidth: 5)
-//                }
         } else {
             content
         }

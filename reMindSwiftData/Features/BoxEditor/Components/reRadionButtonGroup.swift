@@ -28,21 +28,6 @@ struct reRadionButtonGroup: View {
                         color: theme.render
                     )
                 }
-//                reRadioButton(
-//                    currentSelection: $currentSelection,
-//                    tag: 0,
-//                    color: Palette.mauve.render
-//                )
-//                reRadioButton(
-//                    currentSelection: $currentSelection,
-//                    tag: 1,
-//                    color: Palette.lavender.render
-//                )
-//                reRadioButton(
-//                    currentSelection: $currentSelection,
-//                    tag: 2,
-//                    color: Palette.aquamarine.render
-//                )
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

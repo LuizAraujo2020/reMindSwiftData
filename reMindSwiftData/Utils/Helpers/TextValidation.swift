@@ -8,7 +8,6 @@
 import Foundation
 
 protocol Validator {
-    //    associatedtype F
     associatedtype T
     var validations: [((_ value: T) -> Bool)] { get }
 
@@ -28,19 +27,6 @@ extension Validator {
     }
 }
 
-
-//struct TextValidation: Validator {
-//    var validations: [((String) -> Bool)] = []
-//
-//    init() {
-//
-//        validations = [
-//            isntEmpty,
-//            teste2,
-//            teste3
-//        ]
-//    }
-
 enum TextValidationError: LocalizedError {
     case isEmpty
     case exceededSize(Int)
@@ -57,12 +43,6 @@ enum TextValidationError: LocalizedError {
 
 struct TextValidation {
 
-//    func isntEmpty(_ suv: String) -> Bool {
-//        guard !suv.isEmpty else { return false }
-//
-//        return true
-//    }
-
     @discardableResult
     func isntEmpty(_ suv: String) throws -> String {
         guard !suv.isEmpty else {
@@ -71,12 +51,6 @@ struct TextValidation {
 
         return suv
     }
-
-//    func maxSize(_ suv: String, _ size: Int) -> Bool {
-//        guard suv.count <= size else { return false }
-//
-//        return true
-//    }
 
     @discardableResult
     func maxSize(_ suv: String, _ size: Int) throws -> String {
@@ -116,15 +90,5 @@ struct TextValidation {
 
         return suv
     }
-
-//    func dontHave(_ suv: String, _ chars:  [String]) -> Bool {
-//        for char in chars {
-//            if suv.contains(char) {
-//                return false
-//            }
-//        }
-//
-//        return true
-//    }
 }
 

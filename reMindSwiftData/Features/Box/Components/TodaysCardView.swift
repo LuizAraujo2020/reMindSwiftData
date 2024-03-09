@@ -8,19 +8,6 @@
 import SwiftUI
 
 struct TodaysCardView: View {
-//    internal init(terms: Binding<[Term]>/*, numberOfPendingCards: Int*/, theme: reTheme) {
-//        self._terms = terms
-////        self.numberOfPendingCards = numberOfPendingCards
-//        self.theme = theme
-//
-////        self.review = SwipeReview.getTermsToReview(terms: self.terms)
-//    }
-//    
-////    internal init(numberOfPendingCards: Int, theme: reTheme) {
-////        self.numberOfPendingCards = numberOfPendingCards
-////        self.theme = theme
-////    }
-////    
     var terms: [Term]
     @State var theme: reTheme
 
@@ -46,16 +33,6 @@ struct TodaysCardView: View {
             } label: {
                 Text("Start Swipping")
                     .frame(maxWidth: .infinity)
-//                    .padding()
-//                    .font(.body)
-//                    .fontWeight(.bold)
-//                    .foregroundColor(Palette.reBlack.render)
-//                    .frame(height: 48)
-//                    .background {
-//                        Rectangle()
-//                            .fill(theme.render)
-//                            .cornerRadius(10)
-//                    }
             }
             .buttonStyle(reColorButtonStyle(theme))
             .padding(.top, 10)

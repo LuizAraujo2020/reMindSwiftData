@@ -27,12 +27,11 @@ struct SwipperView: View {
                             frontContent: {
                     Text(review.termsToReview[currentTerm].value)
 
-                },
-                            backContent: {
+                }, backContent: {
                     Text(review.termsToReview[currentTerm].meaning)
                 })
             }
-            
+
             Spacer()
 
             Button(action: {

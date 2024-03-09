@@ -13,8 +13,6 @@ struct SwipperReportView: View {
     @State private var review: SwipeReview
 
     let terms: [Term]
-//    var toReview = 0
-//    var reviewed = 0
 
     internal init(terms: [Term]) {
         self.review = SwipeReview.getTermsToReview(terms: terms)

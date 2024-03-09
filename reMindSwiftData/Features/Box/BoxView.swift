@@ -10,7 +10,6 @@ import SwiftUI
 struct BoxView: View {
     @Environment(\.modelContext) private var modelContext
     let box: Box
-    //    @Binding var terms: [Term]
 
     @State private var isEditingBox = false
     @State private var isEditingTerm = false
@@ -18,9 +17,6 @@ struct BoxView: View {
 
     @State private var searchText: String = ""
     @State private var termIndex = 0
-
-    //    var termsToReview: [Term]
-    //    let createTerm: (_ termAux: TermAux) -> Void
 
     //    private var filteredTerms: [Term] {
     //        let termsSet = box.terms as? Set<Term> ?? []

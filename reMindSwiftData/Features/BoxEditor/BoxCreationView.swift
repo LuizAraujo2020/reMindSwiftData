@@ -11,7 +11,6 @@ struct BoxCreationView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
 
-//    @State private var box = Box.createEmpty()
     @State private var name = ""
     @State private var keywords = ""
     @State private var descriptions = ""
