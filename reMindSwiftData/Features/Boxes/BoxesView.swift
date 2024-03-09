@@ -15,18 +15,22 @@ struct BoxesView: View {
     @State var isCreatingNewBox = false
     @State private var searchText = ""
 
-    //    private var filteredBoxes: [Box] {
-    //
-    //        let boxes = viewModel.boxes.sorted { lhs, rhs in
-    //            lhs.name < rhs.name
-    //        }
-    //
-    //        if searchText.isEmpty {
-    //            return boxes
-    //        } else {
-    //            return boxes.filter { ($0.name).contains(searchText) }
-    //        }
-    //    }
+    private var filteredBoxes: [Box] {
+        if searchText.isEmpty {
+            return boxes
+        }
+
+        let items = boxes.compactMap { item in
+            let nameContainsQuery = item.name.range(
+                of: searchText,
+                options: .caseInsensitive
+            ) != nil
+
+            return nameContainsQuery ? item : nil
+        }
+
+        return items
+    }
 
     private let columns: [GridItem] = [
         GridItem(.adaptive(minimum: 140), spacing: 20),
@@ -44,7 +48,8 @@ struct BoxesView: View {
                 } else {
                     LazyVGrid(columns: columns, spacing: 20) {
                         //                    ForEach(viewModel.boxes) { box in
-                        ForEach(boxes) { box in
+//                        ForEach(boxes) { box in
+                        ForEach(filteredBoxes) { box in
                             NavigationLink {
                                 BoxView(box: box)
 
@@ -53,7 +58,7 @@ struct BoxesView: View {
                                     .reBadge(box.getNumberOfPendingTerms())
                             }
                         }
-                    }
+                     }
                     .padding(40)
                 }
             }
