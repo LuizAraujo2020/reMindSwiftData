@@ -56,26 +56,92 @@ struct BoxView: View {
             .padding(.horizontal)
 
             VStack {
+//                List {
+//                    Section {
+////                        ForEach(box.terms.indices, id: \.self) { index in
+//                        ForEach(filteredTerms.indices, id: \.self) { index in
+//                            NavigationLink {
+//                                SwipperView(
+//                                    review: SwipeReview(
+//                                        termsToReview: [filteredTerms[index]],
+//                                        termsReviewed: []
+//                                    )
+//                                )
+//
+//                            } label: {
+//                                Text("\(filteredTerms[index].value)")
+//                                    .padding(.vertical, 8)
+//                                    .fontWeight(filteredTerms[index].isPending ? .bold : .regular)
+//                                    .swipeActions(edge: .trailing) {
+//                                        Button(role: .destructive) {
+//                                            print("delete")
+//                                            destroy(filteredTerms[index])
+//                                        } label: {
+//                                            Image(systemName: "trash")
+//                                        }
+//                                    }
+//                                    .swipeActions(edge: .leading) {
+//                                        Button {
+//                                            print("edit term")
+//                                            termIndex = index
+//                                            isEditingTerm = true
+//
+//                                        } label: {
+//                                            Image(systemName: "square.and.pencil")
+//                                        }
+//                                    }
+//                            }
+//
+//                        }
+//
+//                    } header: {
+//                        Text("All Cards")
+//                            .textCase(.none)
+//                            .font(.title3)
+//                            .fontWeight(.bold)
+//                            .foregroundColor(Palette.label.render)
+//                            .padding(.leading, -16)
+//                            .padding(.bottom, 16)
+//                    }
+//
+//                }
+//                .scrollContentBackground(.hidden)
+//                .background(reBackground())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 List {
                     Section {
 //                        ForEach(box.terms.indices, id: \.self) { index in
-                        ForEach(filteredTerms.indices, id: \.self) { index in
+                        ForEach(Array(filteredTerms.enumerated()), id: \.offset) { index, term in
                             NavigationLink {
                                 SwipperView(
                                     review: SwipeReview(
-                                        termsToReview: [filteredTerms[index]],
+                                        termsToReview: [term],
                                         termsReviewed: []
                                     )
                                 )
 
                             } label: {
-                                Text("\(filteredTerms[index].value)")
+                                Text("\(term.value)")
                                     .padding(.vertical, 8)
-                                    .fontWeight(filteredTerms[index].isPending ? .bold : .regular)
+                                    .fontWeight(term.isPending ? .bold : .regular)
                                     .swipeActions(edge: .trailing) {
                                         Button(role: .destructive) {
                                             print("delete")
-                                            destroy(filteredTerms[index])
+                                            destroy(term)
                                         } label: {
                                             Image(systemName: "trash")
                                         }
@@ -107,6 +173,64 @@ struct BoxView: View {
                 }
                 .scrollContentBackground(.hidden)
                 .background(reBackground())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//                ScrollView {
+//                    LazyVStack {
+//                        ForEach(Array(filteredTerms.enumerated()), id: \.offset) { index, term in
+//                            NavigationLink {
+//                                Text(term.value)
+////                                SwipperView(
+////                                    review: SwipeReview(
+////                                        termsToReview: [filteredTerms[index]],
+////                                        termsReviewed: []
+////                                    )
+////                                )
+//
+//                            } label: {
+//                                Text(term.value)
+//                                    .padding(.vertical, 8)
+//                                    .fontWeight(term.isPending ? .bold : .regular)
+//////                                    .swipeActions(edge: .trailing) {
+//////                                        Button(role: .destructive) {
+//////                                            print("delete")
+//////                                            destroy(filteredTerms[index])
+//////                                        } label: {
+//////                                            Image(systemName: "trash")
+//////                                        }
+//////                                    }
+//////                                    .swipeActions(edge: .leading) {
+//////                                        Button {
+//////                                            print("edit term")
+//////                                            termIndex = index
+//////                                            isEditingTerm = true
+//////
+//////                                        } label: {
+//////                                            Image(systemName: "square.and.pencil")
+//////                                        }
+//////                                    }
+//                            }
+//                        }
+//                    }
+//                }
 
                 Spacer()
 

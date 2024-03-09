@@ -1,0 +1,99 @@
+{
+    "name": "Hiragana",
+    "type": "character",
+    "keywords": "hiragana, seion",
+    "descriptions": "Seion",
+    "terms": [
+        { "term": "あ", "meaning": "a", "theme": 0 },
+        { "term": "い", "meaning": "i", "theme": 0 },
+        { "term": "う", "meaning": "u", "theme": 0 },
+        { "term": "え", "meaning": "e", "theme": 0 },
+        { "term": "お", "meaning": "o", "theme": 0 },
+
+        { "term": "か", "meaning": "ka", "theme": 1 },
+        { "term": "き", "meaning": "ki", "theme": 1 },
+        { "term": "く", "meaning": "ku", "theme": 1 },
+        { "term": "け", "meaning": "ke", "theme": 1 },
+        { "term": "こ", "meaning": "ko", "theme": 1 },
+
+        { "term": "さ", "meaning": "sa",  "theme": 2 },
+        { "term": "し", "meaning": "shi", "theme": 2 },
+        { "term": "す", "meaning": "su",  "theme": 2 },
+        { "term": "せ", "meaning": "se",  "theme": 2 },
+        { "term": "そ", "meaning": "so",  "theme": 2 },
+
+        { "term": "た", "meaning": "ta",  "theme": 0 },
+        { "term": "ち", "meaning": "chi", "theme": 0 },
+        { "term": "つ", "meaning": "tsu", "theme": 0 },
+        { "term": "て", "meaning": "te",  "theme": 0 },
+        { "term": "と", "meaning": "to",  "theme": 0 },
+
+        { "term": "な", "meaning": "na", "theme": 1 },
+        { "term": "に", "meaning": "ni", "theme": 1 },
+        { "term": "ぬ", "meaning": "nu", "theme": 1 },
+        { "term": "ね", "meaning": "ne", "theme": 1 },
+        { "term": "の", "meaning": "no", "theme": 1 },
+
+        { "term": "は", "meaning": "ha", "theme": 2 },
+        { "term": "ひ", "meaning": "hi", "theme": 2 },
+        { "term": "ふ", "meaning": "fu", "theme": 2 },
+        { "term": "へ", "meaning": "he", "theme": 2 },
+        { "term": "ほ", "meaning": "ho", "theme": 2 },
+
+        { "term": "ま", "meaning": "ma", "theme": 0 },
+        { "term": "み", "meaning": "mi", "theme": 0 },
+        { "term": "む", "meaning": "mu", "theme": 0 },
+        { "term": "め", "meaning": "me", "theme": 0 },
+        { "term": "も", "meaning": "mo", "theme": 0 },
+
+        { "term": "や", "meaning": "ya", "theme": 1 },
+        { "term": "𛀆", "meaning": "yi", "theme": 1 },
+        { "term": "ゆ", "meaning": "yu", "theme": 1 },
+        { "term": "𛀁", "meaning": "ye", "theme": 1 },
+        { "term": "よ", "meaning": "yo", "theme": 1 },
+
+        { "term": "ら", "meaning": "ra", "theme": 2 },
+        { "term": "り", "meaning": "ri", "theme": 2 },
+        { "term": "る", "meaning": "ru", "theme": 2 },
+        { "term": "れ", "meaning": "re", "theme": 2 },
+        { "term": "ろ", "meaning": "ro", "theme": 2 },
+
+        { "term": "わ", "meaning": "wa", "theme": 0 },
+        { "term": "ゐ", "meaning": "wi", "theme": 0 },
+        { "term": "ゔ", "meaning": "wu", "theme": 0 },
+        { "term": "ゑ", "meaning": "we", "theme": 0 },
+        { "term": "を", "meaning": "wo", "theme": 0 },
+
+        { "term": "ん", "meaning": "n", "theme": 1 },
+
+        { "term": "が", "meaning": "ga", "theme": 2 },
+        { "term": "ぎ", "meaning": "gi", "theme": 2 },
+        { "term": "ぐ", "meaning": "gu", "theme": 2 },
+        { "term": "げ", "meaning": "ge", "theme": 2 },
+        { "term": "ご", "meaning": "go", "theme": 2 },
+
+        { "term": "ざ", "meaning": "za", "theme": 0 },
+        { "term": "じ", "meaning": "ji", "theme": 0 },
+        { "term": "ず", "meaning": "zu", "theme": 0 },
+        { "term": "ぜ", "meaning": "ze", "theme": 0 },
+        { "term": "ぞ", "meaning": "zo", "theme": 0 },
+
+        { "term": "だ", "meaning": "da",  "theme": 1 },
+        { "term": "ぢ", "meaning": "dji", "theme": 1 },
+        { "term": "づ", "meaning": "dzu", "theme": 1 },
+        { "term": "で", "meaning": "de",  "theme": 1 },
+        { "term": "ど", "meaning": "do",  "theme": 1 },
+
+        { "term": "ば", "meaning": "ba", "theme": 2 },
+        { "term": "び", "meaning": "bi", "theme": 2 },
+        { "term": "ぶ", "meaning": "bu", "theme": 2 },
+        { "term": "べ", "meaning": "be", "theme": 2 },
+        { "term": "ぼ", "meaning": "bo", "theme": 2 },
+
+        { "term": "ぱ", "meaning": "pa", "theme": 0 },
+        { "term": "ぴ", "meaning": "pi", "theme": 0 },
+        { "term": "ぷ", "meaning": "pu", "theme": 0 },
+        { "term": "ぺ", "meaning": "pe", "theme": 0 },
+        { "term": "ぽ", "meaning": "po", "theme": 0 },
+    ]
+}

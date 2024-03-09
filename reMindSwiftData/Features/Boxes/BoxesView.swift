@@ -62,6 +62,16 @@ struct BoxesView: View {
                     .padding(40)
                 }
             }
+
+//            .onAppear {
+//                guard let auxBox: JSONBox = JSONLoader.load(filename: "hiragana1-terms") else { return }
+//
+//                print("🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰")
+//                print(auxBox)
+//
+//                let box = auxBox.createBox()
+//                modelContext.insert(box)
+//            }
             .padding(-20)
             .navigationTitle("Boxes")
             .background(reBackground())

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F9E576A2B9D04D200F6AA4B /* hiragana1-terms.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F9E57692B9D04D200F6AA4B /* hiragana1-terms.json */; };
+		6F9E576C2B9D097B00F6AA4B /* temp-terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E576B2B9D097B00F6AA4B /* temp-terms.swift */; };
+		6F9E576E2B9D0A4800F6AA4B /* JSONBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E576D2B9D0A4800F6AA4B /* JSONBox.swift */; };
+		6F9E57722B9D0E1F00F6AA4B /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E57712B9D0E1F00F6AA4B /* JSONLoader.swift */; };
 		6FB7E42D2B9B804900E69C64 /* reMindSwiftDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7E42C2B9B804900E69C64 /* reMindSwiftDataApp.swift */; };
 		6FB7E4332B9B804B00E69C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FB7E4322B9B804B00E69C64 /* Assets.xcassets */; };
 		6FB7E4362B9B804B00E69C64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FB7E4352B9B804B00E69C64 /* Preview Assets.xcassets */; };
@@ -61,6 +65,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F9E57692B9D04D200F6AA4B /* hiragana1-terms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "hiragana1-terms.json"; sourceTree = "<group>"; };
+		6F9E576B2B9D097B00F6AA4B /* temp-terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "temp-terms.swift"; sourceTree = "<group>"; };
+		6F9E576D2B9D0A4800F6AA4B /* JSONBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONBox.swift; sourceTree = "<group>"; };
+		6F9E57712B9D0E1F00F6AA4B /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		6FB7E4292B9B804900E69C64 /* reMindSwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reMindSwiftData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB7E42C2B9B804900E69C64 /* reMindSwiftDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reMindSwiftDataApp.swift; sourceTree = "<group>"; };
 		6FB7E4322B9B804B00E69C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +133,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F9E57682B9D049700F6AA4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6FB7E4322B9B804B00E69C64 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6F9E576F2B9D0E0000F6AA4B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6F9E57702B9D0E0B00F6AA4B /* JSON */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6F9E57702B9D0E0B00F6AA4B /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				6F9E57692B9D04D200F6AA4B /* hiragana1-terms.json */,
+				6F9E576B2B9D097B00F6AA4B /* temp-terms.swift */,
+				6F9E57712B9D0E1F00F6AA4B /* JSONLoader.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		6FB7E4202B9B804900E69C64 = {
 			isa = PBXGroup;
 			children = (
@@ -148,8 +182,9 @@
 		6FB7E42B2B9B804900E69C64 /* reMindSwiftData */ = {
 			isa = PBXGroup;
 			children = (
+				6F9E576F2B9D0E0000F6AA4B /* Services */,
 				6FB7E47B2B9B95D100E69C64 /* App */,
-				6FB7E4322B9B804B00E69C64 /* Assets.xcassets */,
+				6F9E57682B9D049700F6AA4B /* Resources */,
 				6FB7E4972B9B962000E69C64 /* Features */,
 				6FB7E4582B9B91AE00E69C64 /* Models */,
 				6FB7E4342B9B804B00E69C64 /* Preview Content */,
@@ -187,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				6FB7E4A82B9B996900E69C64 /* Theme.swift */,
+				6F9E576D2B9D0A4800F6AA4B /* JSONBox.swift */,
 				6FB7E4592B9B92B100E69C64 /* Term.swift */,
 				6FB7E45B2B9B93E100E69C64 /* Box.swift */,
 				6FB7E4C02B9BD7B700E69C64 /* SwipeReview.swift */,
@@ -481,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FB7E4362B9B804B00E69C64 /* Preview Assets.xcassets in Resources */,
+				6F9E576A2B9D04D200F6AA4B /* hiragana1-terms.json in Resources */,
 				6FB7E4332B9B804B00E69C64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,8 +548,10 @@
 				6FB7E4742B9B94FD00E69C64 /* TextValidation.swift in Sources */,
 				6FB7E47A2B9B94FD00E69C64 /* reTextFieldStyle.swift in Sources */,
 				6FB7E4B82B9B9F4000E69C64 /* BoxCreationView.swift in Sources */,
+				6F9E576C2B9D097B00F6AA4B /* temp-terms.swift in Sources */,
 				6FB7E4B72B9B9F4000E69C64 /* reRadionButtonGroup.swift in Sources */,
 				6FB7E4C12B9BD7B700E69C64 /* SwipeReview.swift in Sources */,
+				6F9E576E2B9D0A4800F6AA4B /* JSONBox.swift in Sources */,
 				6FB7E4D42B9BFDDA00E69C64 /* SwipperReportListItem.swift in Sources */,
 				6FB7E4B02B9B9A4300E69C64 /* BoxesView.swift in Sources */,
 				6FB7E4CC2B9BFCDB00E69C64 /* SwipperCard.swift in Sources */,
@@ -522,6 +561,7 @@
 				6FB7E4752B9B94FD00E69C64 /* reBadge.swift in Sources */,
 				6FB7E4B92B9B9F4000E69C64 /* BoxEditorView.swift in Sources */,
 				6FB7E4C52B9BDE7800E69C64 /* TermCreatorView.swift in Sources */,
+				6F9E57722B9D0E1F00F6AA4B /* JSONLoader.swift in Sources */,
 				6FB7E4CE2B9BFCDB00E69C64 /* SwipperView.swift in Sources */,
 				6FB7E4792B9B94FD00E69C64 /* reColorButtonStyle.swift in Sources */,
 				6FB7E4AF2B9B9A4300E69C64 /* BoxCardView.swift in Sources */,
