@@ -18,6 +18,22 @@ struct BoxView: View {
     @State private var searchText: String = ""
     @State private var termIndex = 0
 
+    private var filteredTerms: [Term] {
+        if searchText.isEmpty {
+            return box.terms.sorted { lhs, rhs in
+                (lhs.value) < (rhs.value)
+            }
+        }
+
+        let items = box.terms
+            .filter { ($0.value).localizedStandardContains(searchText) ||
+                ($0.meaning).localizedStandardContains(searchText)
+            }
+            .sorted { lhs, rhs in (lhs.value) < (rhs.value) }
+
+        return items
+    }
+
     //    private var filteredTerms: [Term] {
     //        let termsSet = box.terms as? Set<Term> ?? []
     //        let terms = Array(termsSet).sorted { lhs, rhs in
@@ -42,23 +58,24 @@ struct BoxView: View {
             VStack {
                 List {
                     Section {
-                        ForEach(box.terms.indices, id: \.self) { index in
+//                        ForEach(box.terms.indices, id: \.self) { index in
+                        ForEach(filteredTerms.indices, id: \.self) { index in
                             NavigationLink {
                                 SwipperView(
                                     review: SwipeReview(
-                                        termsToReview: [box.terms[index]],
+                                        termsToReview: [filteredTerms[index]],
                                         termsReviewed: []
                                     )
                                 )
 
                             } label: {
-                                Text("\(box.terms[index].value)")
+                                Text("\(filteredTerms[index].value)")
                                     .padding(.vertical, 8)
-                                    .fontWeight(box.terms[index].isPending ? .bold : .regular)
+                                    .fontWeight(filteredTerms[index].isPending ? .bold : .regular)
                                     .swipeActions(edge: .trailing) {
                                         Button(role: .destructive) {
                                             print("delete")
-                                            destroy(box.terms[index])
+                                            destroy(filteredTerms[index])
                                         } label: {
                                             Image(systemName: "trash")
                                         }
