@@ -19,6 +19,17 @@ final class Term {
     var value: String
 //    var boxID: Box?
 
+    internal init() {
+        self.creationDate = .now
+        self.identifier = UUID()
+        self.lastReview = .now
+        self.meaning = ""
+        self.rawSRS = 0
+        self.rawTheme = 0
+        self.value = "" 
+        //        self._$backingData = _$backingData
+    }
+
     internal init(
         creationDate: Date,
         identifier: UUID,
@@ -55,4 +66,5 @@ extension Term {
 
         return nextReview <= Date()
     }
+
 }

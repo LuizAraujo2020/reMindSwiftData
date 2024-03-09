@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TermEditorView: View {
     @Environment(\.dismiss) var dismiss
+//    @Environment(\.modelContext) private var modelContext
+//    @Query(sort: \Box.name) private var term: [Box]
 
     let term: Term
     @State var value: String
@@ -23,7 +25,7 @@ struct TermEditorView: View {
 //    var boxID: UUID
 //
 //    let editTerm: (TermAux) -> Void
-//    let editTerm: (String, String) -> Void
+    let editTerm: (String, String) -> Void
 
     var body: some View {
         NavigationStack {
@@ -65,7 +67,8 @@ struct TermEditorView: View {
 
 //                    term = ""
 //                    meaning = ""
-
+                    saveChanges()
+                    dismiss()
                 } label: {
                     Text("Save Changes")
                         .frame(maxWidth: .infinity)
@@ -102,6 +105,14 @@ struct TermEditorView: View {
 //                    .fontWeight(.bold)
 //                }
 //            }
+//            .onAppear {
+//                if let sneakers = modelContext.model(for: yourID) as? Movie {
+//                    print(sneakers.director)
+//                }
+//                value = term.value
+//                meaning = term.meaning
+//            }
+
         }
     }
 
@@ -130,6 +141,12 @@ struct TermEditorView: View {
             print("asdasd")
             return false
         }
+    }
+
+    private func saveChanges() {
+        editTerm(value, meaning)
+//        term.meaning = meaning
+//        term.value = value
     }
 }
 

@@ -15,6 +15,7 @@ struct BoxView: View {
     @State private var isEditingBox = false
     @State private var isEditingTerm = false
     @State private var isCreatingTerm = false
+
     @State private var searchText: String = ""
     @State private var termIndex = 0
 
@@ -45,31 +46,32 @@ struct BoxView: View {
             VStack {
                 List {
                     Section {
-                        ForEach(box.terms) { term in
+                        ForEach(box.terms.indices, id: \.self) { index in
                             NavigationLink {
                                 Text("SwipperView(review: SwipeReview(termsToReview: [terms[index]], termsReviewed: []))")
 
                             } label: {
-                                Text("\(term.value)")
+                                Text("\(box.terms[index].value)")
                                     .padding(.vertical, 8)
-                                    .fontWeight(term.isPending ? .bold : .regular)
+                                    .fontWeight(box.terms[index].isPending ? .bold : .regular)
                                     .swipeActions(edge: .trailing) {
                                         Button(role: .destructive) {
                                             print("delete")
-                                            destroy(term)
+                                            destroy(box.terms[index])
                                         } label: {
                                             Image(systemName: "trash")
                                         }
                                     }
-                                //                                    .swipeActions(edge: .leading) {
-                                //                                        Button {
-                                //                                            print("edit term")
-                                //                                            isEditingTerm = true
-                                //
-                                //                                        } label: {
-                                //                                            Image(systemName: "square.and.pencil")
-                                //                                        }
-                                //                                    }
+                                    .swipeActions(edge: .leading) {
+                                        Button {
+                                            print("edit term")
+                                            termIndex = index
+                                            isEditingTerm = true
+
+                                        } label: {
+                                            Image(systemName: "square.and.pencil")
+                                        }
+                                    }
                             }
 
                         }
@@ -124,54 +126,35 @@ struct BoxView: View {
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         .sheet(isPresented: $isEditingBox) {
             BoxEditorView(box: box)
         }
         .sheet(isPresented: $isCreatingTerm) {
             TermCreatorView(box: box)
         }
-        //        .sheet(isPresented: $isEditingTerm) {
-        //            TermEditorView(
-        //                term: terms[termIndex],
-        //////            TermEditorView(
-        //                value: terms[termIndex].value,
-        //                meaning: terms[termIndex].meaning
-        //////                boxID: box.identifier,
-        //////                editTerm: viewModel.editTerm
-        //            )
-        ////                term: filteredTerms[termIndex],
-        ////                value: terms[termIndex].value,
-        ////                meaning: terms[termIndex].meaning
-        ////            ) { value, meaning in
-        ////                terms[termIndex].setValue(value, forKey: "value")
-        ////                terms[termIndex].setValue(meaning, forKey: "meaning")
-        ////            }
-        //        }
+        .sheet(isPresented: $isEditingTerm) {
+                        TermEditorView(
+                            term: box.terms[termIndex],
+            ////            TermEditorView(
+                            value: box.terms[termIndex].value,
+                            meaning: box.terms[termIndex].meaning
+            ////                boxID: box.identifier,
+            ////                editTerm: viewModel.editTerm
+                        ) { value, meaning in
+                            box.terms[termIndex].value = value
+                            box.terms[termIndex].meaning = meaning
+                        }
+            //                term: filteredTerms[termIndex],
+            //                value: terms[termIndex].value,
+            //                meaning: terms[termIndex].meaning
+            //            ) { value, meaning in
+            //                terms[termIndex].setValue(value, forKey: "value")
+            //                terms[termIndex].setValue(meaning, forKey: "meaning")
+            //            }
+//            if let termToEdit {
+//            TermEditorView(term: termToEdit)
+//            }
+        }
     }
 
     private func destroy(_ term: Term) {
