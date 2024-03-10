@@ -98,10 +98,6 @@ struct BoxCreationView: View {
 
     private func createHiraganaBox(_ auxBox: JSONBox) {
 
-
-        //            .onAppear {
-//        guard let auxBox: JSONBox = JSONLoader.load(filename: "hiragana1-terms") else { return }
-
         let box = auxBox.createBoxWithTerms()
         modelContext.insert(box)
     }

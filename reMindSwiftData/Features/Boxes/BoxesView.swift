@@ -13,7 +13,9 @@ struct BoxesView: View {
     @Query(sort: \Box.name) private var boxes: [Box]
 
     @State var isCreatingNewBox = false
+    @State var isShowingInspector = false
     @State private var searchText = ""
+    @State private var boxToDelete: Box?
 
     private var filteredBoxes: [Box] {
         if searchText.isEmpty {
@@ -50,11 +52,28 @@ struct BoxesView: View {
                         ForEach(Array(filteredBoxes.enumerated()), id: \.offset) { index, box in
                             NavigationLink {
                                 BoxView(box: box)
-
+                                
                             } label: {
                                 BoxCardView(box: box)
                                     .reBadge(box.getNumberOfPendingTerms())
+                                    .alert(isPresented: $isShowingInspector) {
+                                        Alert(
+                                            title: Text("Are you sure you want to delete this box?"),
+                                            message: Text("There is no undo"),
+                                            primaryButton: .destructive(Text("Delete")) {
+                                                if let boxToDelete {
+                                                    modelContext.delete(boxToDelete)
+                                                }
+                                            },
+                                            secondaryButton: .cancel()
+                                        )
+                                    }
+
                             }
+                            .simultaneousGesture(LongPressGesture().onEnded { _ in
+                                boxToDelete = box
+                                isShowingInspector.toggle()
+                            })
                         }
                      }
                     .padding(40)
@@ -93,10 +112,14 @@ struct BoxesView: View {
         }
     }
 
+//    @MainActor
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(boxes[index])
+
+                DispatchQueue.main.async {
+                    modelContext.delete(filteredBoxes[index])
+                }
             }
         }
     }
