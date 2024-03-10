@@ -34,19 +34,6 @@ struct BoxView: View {
         return items
     }
 
-    //    private var filteredTerms: [Term] {
-    //        let termsSet = box.terms as? Set<Term> ?? []
-    //        let terms = Array(termsSet).sorted { lhs, rhs in
-    //            (lhs.value) < (rhs.value)
-    //        }
-    //
-    //        if searchText.isEmpty {
-    //            return terms
-    //        } else {
-    //            return terms.filter { ($0.value).contains(searchText) }
-    //        }
-    //    }
-
     var body: some View {
         VStack {
             TodaysCardView(
@@ -56,75 +43,8 @@ struct BoxView: View {
             .padding(.horizontal)
 
             VStack {
-//                List {
-//                    Section {
-////                        ForEach(box.terms.indices, id: \.self) { index in
-//                        ForEach(filteredTerms.indices, id: \.self) { index in
-//                            NavigationLink {
-//                                SwipperView(
-//                                    review: SwipeReview(
-//                                        termsToReview: [filteredTerms[index]],
-//                                        termsReviewed: []
-//                                    )
-//                                )
-//
-//                            } label: {
-//                                Text("\(filteredTerms[index].value)")
-//                                    .padding(.vertical, 8)
-//                                    .fontWeight(filteredTerms[index].isPending ? .bold : .regular)
-//                                    .swipeActions(edge: .trailing) {
-//                                        Button(role: .destructive) {
-//                                            print("delete")
-//                                            destroy(filteredTerms[index])
-//                                        } label: {
-//                                            Image(systemName: "trash")
-//                                        }
-//                                    }
-//                                    .swipeActions(edge: .leading) {
-//                                        Button {
-//                                            print("edit term")
-//                                            termIndex = index
-//                                            isEditingTerm = true
-//
-//                                        } label: {
-//                                            Image(systemName: "square.and.pencil")
-//                                        }
-//                                    }
-//                            }
-//
-//                        }
-//
-//                    } header: {
-//                        Text("All Cards")
-//                            .textCase(.none)
-//                            .font(.title3)
-//                            .fontWeight(.bold)
-//                            .foregroundColor(Palette.label.render)
-//                            .padding(.leading, -16)
-//                            .padding(.bottom, 16)
-//                    }
-//
-//                }
-//                .scrollContentBackground(.hidden)
-//                .background(reBackground())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 List {
                     Section {
-//                        ForEach(box.terms.indices, id: \.self) { index in
                         ForEach(Array(filteredTerms.enumerated()), id: \.offset) { index, term in
                             NavigationLink {
                                 SwipperView(
@@ -157,7 +77,6 @@ struct BoxView: View {
                                         }
                                     }
                             }
-
                         }
 
                     } header: {
@@ -169,68 +88,9 @@ struct BoxView: View {
                             .padding(.leading, -16)
                             .padding(.bottom, 16)
                     }
-
                 }
                 .scrollContentBackground(.hidden)
                 .background(reBackground())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//                ScrollView {
-//                    LazyVStack {
-//                        ForEach(Array(filteredTerms.enumerated()), id: \.offset) { index, term in
-//                            NavigationLink {
-//                                Text(term.value)
-////                                SwipperView(
-////                                    review: SwipeReview(
-////                                        termsToReview: [filteredTerms[index]],
-////                                        termsReviewed: []
-////                                    )
-////                                )
-//
-//                            } label: {
-//                                Text(term.value)
-//                                    .padding(.vertical, 8)
-//                                    .fontWeight(term.isPending ? .bold : .regular)
-//////                                    .swipeActions(edge: .trailing) {
-//////                                        Button(role: .destructive) {
-//////                                            print("delete")
-//////                                            destroy(filteredTerms[index])
-//////                                        } label: {
-//////                                            Image(systemName: "trash")
-//////                                        }
-//////                                    }
-//////                                    .swipeActions(edge: .leading) {
-//////                                        Button {
-//////                                            print("edit term")
-//////                                            termIndex = index
-//////                                            isEditingTerm = true
-//////
-//////                                        } label: {
-//////                                            Image(systemName: "square.and.pencil")
-//////                                        }
-//////                                    }
-//                            }
-//                        }
-//                    }
-//                }
 
                 Spacer()
 

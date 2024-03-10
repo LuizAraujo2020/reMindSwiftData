@@ -47,9 +47,7 @@ struct BoxesView: View {
                     )
                 } else {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        //                    ForEach(viewModel.boxes) { box in
-//                        ForEach(boxes) { box in
-                        ForEach(filteredBoxes) { box in
+                        ForEach(Array(filteredBoxes.enumerated()), id: \.offset) { index, box in
                             NavigationLink {
                                 BoxView(box: box)
 
@@ -62,16 +60,6 @@ struct BoxesView: View {
                     .padding(40)
                 }
             }
-
-//            .onAppear {
-//                guard let auxBox: JSONBox = JSONLoader.load(filename: "hiragana1-terms") else { return }
-//
-//                print("🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰🔰")
-//                print(auxBox)
-//
-//                let box = auxBox.createBox()
-//                modelContext.insert(box)
-//            }
             .padding(-20)
             .navigationTitle("Boxes")
             .background(reBackground())

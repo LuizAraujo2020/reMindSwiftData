@@ -11,6 +11,7 @@
 		6F9E576C2B9D097B00F6AA4B /* temp-terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E576B2B9D097B00F6AA4B /* temp-terms.swift */; };
 		6F9E576E2B9D0A4800F6AA4B /* JSONBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E576D2B9D0A4800F6AA4B /* JSONBox.swift */; };
 		6F9E57722B9D0E1F00F6AA4B /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9E57712B9D0E1F00F6AA4B /* JSONLoader.swift */; };
+		6F9E57742B9D277B00F6AA4B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F9E57732B9D277B00F6AA4B /* README.md */; };
 		6FB7E42D2B9B804900E69C64 /* reMindSwiftDataApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB7E42C2B9B804900E69C64 /* reMindSwiftDataApp.swift */; };
 		6FB7E4332B9B804B00E69C64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FB7E4322B9B804B00E69C64 /* Assets.xcassets */; };
 		6FB7E4362B9B804B00E69C64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FB7E4352B9B804B00E69C64 /* Preview Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		6F9E576B2B9D097B00F6AA4B /* temp-terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "temp-terms.swift"; sourceTree = "<group>"; };
 		6F9E576D2B9D0A4800F6AA4B /* JSONBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONBox.swift; sourceTree = "<group>"; };
 		6F9E57712B9D0E1F00F6AA4B /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		6F9E57732B9D277B00F6AA4B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6FB7E4292B9B804900E69C64 /* reMindSwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reMindSwiftData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB7E42C2B9B804900E69C64 /* reMindSwiftDataApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reMindSwiftDataApp.swift; sourceTree = "<group>"; };
 		6FB7E4322B9B804B00E69C64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		6FB7E4202B9B804900E69C64 = {
 			isa = PBXGroup;
 			children = (
+				6F9E57732B9D277B00F6AA4B /* README.md */,
 				6FB7E42B2B9B804900E69C64 /* reMindSwiftData */,
 				6FB7E43E2B9B804C00E69C64 /* reMindSwiftDataTests */,
 				6FB7E4482B9B804C00E69C64 /* reMindSwiftDataUITests */,
@@ -518,6 +521,7 @@
 			files = (
 				6FB7E4362B9B804B00E69C64 /* Preview Assets.xcassets in Resources */,
 				6F9E576A2B9D04D200F6AA4B /* hiragana1-terms.json in Resources */,
+				6F9E57742B9D277B00F6AA4B /* README.md in Resources */,
 				6FB7E4332B9B804B00E69C64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
