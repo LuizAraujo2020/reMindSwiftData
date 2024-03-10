@@ -58,4 +58,5 @@
     *  ✅ versionamento Git/GitHub;
     *  ✅ commits semânticos;
     *  ✅ JSON para criar boxes e termos instantaneamente;
-    *  ✅ Botões na Sheet de criar Box, criados pelo JSON de boxes.
+    *  ✅ Botões na Sheet de criar Box, criados pelo JSON de boxes;
+    *  ✅ Long press to delete boxes.
