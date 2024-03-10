@@ -24,7 +24,7 @@ struct JSONLoader {
 //        }
 //    }
 
-    static func load(filename: String) -> JSONBox? {
+    static func load(filename: String) -> [JSONBox] {
         guard let file = Bundle.main.path(forResource: filename, ofType: "json") else {
             fatalError("Unable to locate file \"\(filename)\" in main bundle.")
         }
@@ -32,23 +32,23 @@ struct JSONLoader {
         do {
 //            return try String(contentsOfFile: file).data(using: .utf8)
             let data = try String(contentsOfFile: file).data(using: .utf8) ?? Data()
-            return try JSONDecoder().decode(JSONBox.self, from: data)
+            return try JSONDecoder().decode([JSONBox].self, from: data)
         } catch {
             fatalError("Unable to load \"\(filename)\" from main bundle:\n\(error)")
         }
     }
 
-    static func load<T: Codable>(filename: String) -> T? {
-        guard let file = Bundle.main.path(forResource: filename, ofType: "json") else {
-            fatalError("Unable to locate file \"\(filename)\" in main bundle.")
-        }
-
-        do {
-//            return try String(contentsOfFile: file).data(using: .utf8)
-            let data = try String(contentsOfFile: file).data(using: .utf8) ?? Data()
-            return try JSONDecoder().decode(T.self, from: data)
-        } catch {
-            fatalError("Unable to load \"\(filename)\" from main bundle:\n\(error)")
-        }
-    }
+//    static func load<T: Codable>(filename: String) -> T? {
+//        guard let file = Bundle.main.path(forResource: filename, ofType: "json") else {
+//            fatalError("Unable to locate file \"\(filename)\" in main bundle.")
+//        }
+//
+//        do {
+////            return try String(contentsOfFile: file).data(using: .utf8)
+//            let data = try String(contentsOfFile: file).data(using: .utf8) ?? Data()
+//            return try JSONDecoder().decode(T.self, from: data)
+//        } catch {
+//            fatalError("Unable to load \"\(filename)\" from main bundle:\n\(error)")
+//        }
+//    }
 }

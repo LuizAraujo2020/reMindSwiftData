@@ -12,6 +12,7 @@ struct JSONBox: Codable {
     let type: String
     let keywords: String
     let descriptions: String
+    let theme: Int
     let terms: [JSONTerm]
 
 }
@@ -23,7 +24,19 @@ struct JSONTerm: Codable {
 }
 
 extension JSONBox {
+
     func createBox() -> Box {
+        Box(
+            identifier: UUID(),
+            name: self.name,
+            keywords: self.keywords,
+            descriptions: self.descriptions,
+            rawTheme: self.theme,
+            terms: []
+        )
+    }
+
+    func createBoxWithTerms() -> Box {
 
         var terms = [Term]()
 
@@ -41,16 +54,13 @@ extension JSONBox {
             terms.append(term)
         }
 
-        var box = Box(
+        return Box(
             identifier: UUID(),
             name: self.name,
             keywords: self.keywords,
             descriptions: self.descriptions,
-            rawTheme: 0,
+            rawTheme: self.theme,
             terms: terms
         )
-
-
-        return box
     }
 }
