@@ -5,10 +5,10 @@
 
 
 1. ✅ Boxes
-    - ✅ Listar as boxes;
-    - ✅ Contar o número de termos;
-    - ✅ Contar o número de termos pendentes de revisão; 
-    - ✅ Criar nova box;
+    A. ✅ Listar as boxes;
+    B. ✅ Contar o número de termos;
+    C. ✅ Contar o número de termos pendentes de revisão; 
+    D. ✅ Criar nova box;
     
     
 2. ✅ NewBox(Create e Update)
