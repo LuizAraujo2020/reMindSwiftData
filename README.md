@@ -34,9 +34,9 @@
     - ✅ UUID, data de criação, data da próxima revisão, box UUID;
     - Revisão: 1 dia, 2 dias, 3 dias, 5 dias, 7 dias, 14 dias, 30 dias;
     - ✅ "Save and Add New" - Para facilitar a adição de novos termos;
-    i.   ✅ Salvar os dados preenchidos; 
-    ii.  ✅ Limpar os campos;
-    iii. ✅ Permanecer na tela.
+        *  ✅ Salvar os dados preenchidos; 
+        *  ✅ Limpar os campos;
+        *  ✅ Permanecer na tela.
         
         
 5. ✅ Swipper
@@ -45,8 +45,8 @@
     - ✅ Swipe para a esquerda = ainda estou aprendendo este termo;
     - ✅ Swipe para a direita = eu lembro deste termo;
     - ✅ Finalizar a revisão antes de visualizar todos os termos; 
-    - *  ✅ Botão que inicia todas as revisões;
-    - *  ✅ Iniciar uma única revisão
+    *  ✅ Botão que inicia todas as revisões;
+    *  ✅ Iniciar uma única revisão
     
     
 6. ✅ Swipper Report
@@ -55,8 +55,8 @@
         
         
 * MISC
-    - *  ✅ versionamento Git/GitHub;
-    - *  ✅ commits semânticos;
-    - *  ✅ JSON para criar boxes e termos instantaneamente;
-    - *  ✅ Botões na Sheet de criar Box, criados pelo JSON de boxes;
-    - *  ✅ Long press to delete boxes.
+    *  ✅ versionamento Git/GitHub;
+    *  ✅ commits semânticos;
+    *  ✅ JSON para criar boxes e termos instantaneamente;
+    *  ✅ Botões na Sheet de criar Box, criados pelo JSON de boxes;
+    *  ✅ Long press to delete boxes.
