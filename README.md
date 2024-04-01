@@ -65,7 +65,7 @@ b. ✅ Ao clicar em um termo, a row se expande e o significado é exibido;
 
 When you find yourself creating a list of bullet points, go through this checklist:
 
-Do all bullet points belong together?
-Check that all the elements in the list are logically connected.
-Do I have more three or more bullet points, but less than six?
-Readers get lost when reading long lists; at the same time, if you have less than three elements to list, is it necessary to use bullet points?
+1. Do all bullet points belong together?
+    - Check that all the elements in the list are logically connected.
+2. Do I have more three or more bullet points, but less than six?
+    - Readers get lost when reading long lists; at the same time, if you have less than three elements to list, is it necessary to use bullet points?
